@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Women's Day 💚 | Gen Z Edition</title>
+    <meta name="description"
+        content="Celebrate Women's Day with Green Flags, Curiosity Box, Emoji Quiz, Personality Quiz, Meme Generator, and more!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ────────── AMBIENT BACKGROUND MUSIC ────────── -->
+    <audio id="ambient-audio" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ────────── HERO ────────── -->
+    <header class="hero">
+        <div class="orb o1"></div>
+        <div class="orb o2"></div>
+        <div class="orb o3"></div>
+        <div class="hero-content">
+            <span class="hero-tag">March 8, 2026</span>
+            <h1 class="hero-title">Happy Women's Day 🌸</h1>
+            <p class="hero-sub">Gen Z Edition — because we celebrate differently 💅</p>
+            <nav class="hero-nav" aria-label="Section navigation">
+                <button class="nav-pill" onclick="scrollTo('green-flag')">💚 Green Flags</button>
+                <button class="nav-pill" onclick="scrollTo('curiosity-box')">👀 Curiosity Box</button>
+                <button class="nav-pill" onclick="scrollTo('flip-cards')">🃏 Flip Cards</button>
+                <button class="nav-pill" onclick="scrollTo('emoji-quiz')">🎯 Emoji Quiz</button>
+                <button class="nav-pill" onclick="scrollTo('personality-quiz')">✨ Girl Quiz</button>
+                <button class="nav-pill" onclick="scrollTo('decode-text')">📱 Decode Text</button>
+                <button class="nav-pill" onclick="scrollTo('red-flag')">🚩 Red Flag</button>
+                <button class="nav-pill" onclick="scrollTo('meme-gen')">😂 Meme Gen</button>
+                <button class="nav-pill" onclick="scrollTo('compliment')">💌 Compliments</button>
+            </nav>
+            <button id="music-btn" class="music-toggle-btn" onclick="toggleMusic()" title="Toggle background music">🎵 Play Music</button>
+        </div>
+        <div class="hero-scroll-hint">scroll down ↓</div>
+    </header>
+
+    <main>
+
+        <!-- ────────── 1. GREEN FLAG GENERATOR ────────── -->
+        <section id="green-flag" class="section">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">💚</div>
+                    <h2>Green Flag Generator</h2>
+                    <p>Because we appreciate the good ones</p>
+                </div>
+
+                <div class="flag-card" id="flag-card">
+                    <div class="flag-glow"></div>
+                    <span class="flag-big-icon">💚</span>
+                    <p class="flag-text" id="flag-text">Hit the button to discover a green flag! 🎲</p>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="gen-flag-btn" onclick="generateFlag()">
+                        🎲 Generate Flag
+                    </button>
+                    <button class="btn btn-ghost" id="share-flag-btn" onclick="shareFlag()" style="display:none">
+                        📤 Share It
+                    </button>
+                </div>
+                <p class="toast-inline" id="flag-toast"></p>
+            </div>
+        </section>
+
+        <!-- ────────── 2. CURIOSITY BOX ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="curiosity-box" class="section s-dark">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">👀</div>
+                    <h2>Curiosity Box</h2>
+                    <p>You won't be able to stop clicking</p>
+                </div>
+
+                <div class="curiosity-box-wrapper">
+                    <div class="mystery-box" id="mystery-box">
+                        <div class="box-lid" id="box-lid">📦</div>
+                        <div class="box-reveal hidden" id="box-reveal">
+                            <div class="box-reveal-icon" id="box-reveal-icon"></div>
+                            <p class="box-reveal-label" id="box-reveal-label"></p>
+                            <p class="box-reveal-text" id="box-reveal-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-primary" onclick="openCuriosityBox()">
+                        👀 Click if you're curious
+                    </button>
+                </div>
+                <p class="curiosity-counter">Opened <span id="curiosity-count">0</span> times 🤭</p>
+            </div>
+        </section>
+
+        <!-- ────────── 3. WHAT PEOPLE THINK vs WHAT SHE ACTUALLY IS ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="flip-cards" class="section">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">🃏</div>
+                    <h2>What People Think vs Reality</h2>
+                    <p>Click a card to flip the narrative 👇</p>
+                </div>
+
+                <div class="flip-grid" id="flip-grid">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ────────── 4. EMOJI QUIZ ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="emoji-quiz" class="section s-dark">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">🎯</div>
+                    <h2>Guess the Iconic Woman</h2>
+                    <p>Decode the emojis, guess the legend!</p>
+                </div>
+
+                <div class="score-bar">
+                    <div class="score-chip">🏆 Score: <strong id="eq-score">0</strong></div>
+                    <div class="score-chip">❓ <strong id="eq-progress">1 / 8</strong></div>
+                    <div class="score-chip">🔥 Streak: <strong id="eq-streak">0</strong></div>
+                </div>
+
+                <div id="emoji-game-area">
+                    <div class="emoji-clue-card" id="emoji-clue-card">
+                        <p class="emoji-display" id="emoji-display"></p>
+                        <p class="emoji-hint" id="emoji-hint"></p>
+                    </div>
+                    <div class="choices-grid" id="choices-grid"></div>
+                    <div class="answer-reveal hidden" id="answer-reveal">
+                        <div class="answer-icon" id="answer-icon"></div>
+                        <p class="answer-name" id="answer-text"></p>
+                        <p class="answer-fact" id="answer-fact"></p>
+                        <button class="btn btn-primary" onclick="nextEmojiQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <div class="quiz-end hidden" id="eq-result">
+                    <div class="trophy-big">🏆</div>
+                    <h3 id="eq-title"></h3>
+                    <p id="eq-msg"></p>
+                    <p class="final-score">Score: <strong id="eq-final"></strong></p>
+                    <button class="btn btn-primary" onclick="restartEmojiQuiz()">Play Again 🔄</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ────────── 5. PERSONALITY QUIZ ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="personality-quiz" class="section">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">✨</div>
+                    <h2>What Kind of Girl Are You?</h2>
+                    <p>The BuzzFeed quiz you didn't know you needed 💅</p>
+                </div>
+
+                <div id="pq-start">
+                    <div class="pq-welcome">
+                        <div class="pq-welcome-emoji">🌸</div>
+                        <h3>Ready to find out?</h3>
+                        <p>5 quick questions → your inner energy revealed</p>
+                        <button class="btn btn-primary" onclick="startPQ()">Let's Go ✨</button>
+                    </div>
+                </div>
+
+                <div id="pq-area" class="hidden">
+                    <div class="pq-progress-bar">
+                        <div class="pq-fill" id="pq-fill"></div>
+                    </div>
+                    <p class="pq-counter" id="pq-counter">Question 1 of 5</p>
+                    <div class="pq-card">
+                        <h3 id="pq-q"></h3>
+                        <div class="pq-options" id="pq-opts"></div>
+                    </div>
+                </div>
+
+                <div id="pq-result" class="hidden">
+                    <div class="pq-result-card" id="pq-result-card">
+                        <div class="pq-result-emoji" id="pq-r-emoji"></div>
+                        <h3 id="pq-r-title"></h3>
+                        <p id="pq-r-desc"></p>
+                        <div class="pq-tags" id="pq-r-tags"></div>
+                        <div class="btn-row">
+                            <button class="btn btn-primary" onclick="sharePQ()">📤 Share</button>
+                            <button class="btn btn-ghost" onclick="restartPQ()">🔄 Retake</button>
+                        </div>
+                        <p class="toast-inline" id="pq-toast"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ────────── 6. DECODE HER TEXT ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="decode-text" class="section s-dark">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">📱</div>
+                    <h2>Decode Her Text</h2>
+                    <p>What she said vs what she meant 😤</p>
+                </div>
+
+                <div class="decode-wrapper">
+                    <div class="decode-messages" id="decode-messages">
+                        <!-- injected by JS -->
+                    </div>
+                    <div class="decode-active-area">
+                        <div class="phone-bubble sent" id="decode-msg-display"></div>
+                        <button class="btn btn-primary" id="decode-btn" onclick="decodeText()">🔍 Decode →</button>
+                        <div class="phone-bubble received hidden" id="decode-reveal"></div>
+                    </div>
+                    <button class="btn btn-ghost" onclick="nextDecode()">Next Message →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ────────── 7. RED FLAG DETECTOR ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="red-flag" class="section">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">🚩</div>
+                    <h2>Red Flag Detector</h2>
+                    <p>Type anything — we'll detect the energy 🔬</p>
+                </div>
+
+                <div class="rf-wrapper">
+                    <div class="rf-input-row">
+                        <input type="text" id="rf-input" class="rf-input"
+                            placeholder='Try: "I was busy" or "I brought food for everyone"' maxlength="100"
+                            onkeydown="if(event.key==='Enter') detectFlag()" />
+                        <button class="btn btn-primary" onclick="detectFlag()">🔍 Detect</button>
+                    </div>
+                    <div class="rf-result hidden" id="rf-result">
+                        <div class="rf-result-icon" id="rf-icon"></div>
+                        <p class="rf-result-label" id="rf-label"></p>
+                        <p class="rf-result-msg" id="rf-msg"></p>
+                    </div>
+                    <div class="rf-examples">
+                        <p class="rf-examples-title">Try these examples:</p>
+                        <div class="rf-chips">
+                            <button class="chip" onclick="tryRF('I forgot to reply')">I forgot to reply</button>
+                            <button class="chip" onclick="tryRF('I was busy')">I was busy</button>
+                            <button class="chip" onclick="tryRF('I brought food for everyone')">I brought food for
+                                everyone</button>
+                            <button class="chip" onclick="tryRF('I will text you later')">I will text you later</button>
+                            <button class="chip" onclick="tryRF('You always do this')">You always do this</button>
+                            <button class="chip" onclick="tryRF('I listen when you vent')">I listen when you
+                                vent</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ────────── 8. MEME GENERATOR ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="meme-gen" class="section s-dark">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">😂</div>
+                    <h2>Meme Generator</h2>
+                    <p>Because the internet made us who we are 🙃</p>
+                </div>
+
+                <div class="meme-tabs">
+                    <button class="meme-tab active" id="tab-drake" onclick="selectTemplate('drake')">🤷 Drake
+                        Meme</button>
+                    <button class="meme-tab" id="tab-exp" onclick="selectTemplate('expectation')">🌟 Expectation vs
+                        Reality</button>
+                </div>
+
+                <div class="meme-inputs" id="drake-inputs">
+                    <label>😒 Ignoring (top)</label>
+                    <input type="text" id="drake-top" placeholder="e.g. ignoring red flags" maxlength="55" />
+                    <label>😄 Approving (bottom)</label>
+                    <input type="text" id="drake-bottom" placeholder="e.g. appreciating green flags" maxlength="55" />
+                </div>
+
+                <div class="meme-inputs hidden" id="exp-inputs">
+                    <label>🌟 Expectation</label>
+                    <input type="text" id="exp-top" placeholder="e.g. Women's Day motivation speech" maxlength="55" />
+                    <label>😂 Reality</label>
+                    <input type="text" id="exp-bottom" placeholder="e.g. Sending memes to each other" maxlength="55" />
+                </div>
+
+                <button class="btn btn-primary" onclick="generateMeme()">🎨 Generate Meme</button>
+
+                <div class="canvas-wrap" id="canvas-wrap">
+                    <canvas id="meme-canvas"></canvas>
+                </div>
+                <button class="btn btn-ghost hidden" id="dl-btn" onclick="downloadMeme()">⬇️ Download Meme</button>
+
+            </div>
+        </section>
+
+        <!-- ────────── 9. COMPLIMENT MACHINE ────────── -->
+        <div class="floral-divider" aria-hidden="true"></div>
+        <section id="compliment" class="section">
+            <div class="s-inner">
+                <div class="s-head">
+                    <div class="s-badge">💌</div>
+                    <h2>Compliment Machine</h2>
+                    <p>You deserve every word of this 🌸</p>
+                </div>
+
+                <div class="compliment-card" id="compliment-card">
+                    <div class="compliment-glow"></div>
+                    <span class="compliment-flower">🌸</span>
+                    <p class="compliment-text" id="compliment-text">Press the button and feel the love 💖</p>
+                    <div class="compliment-sparkles" id="sparkles"></div>
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn btn-primary" onclick="generateCompliment()">💌 Give Me a Compliment</button>
+                    <button class="btn btn-ghost" id="share-compliment-btn" onclick="shareCompliment()"
+                        style="display:none">📤 Share</button>
+                </div>
+                <p class="toast-inline" id="compliment-toast"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>Made with 💚 to celebrate every incredible woman</p>
+        <p class="footer-sub">Happy Women's Day 2026 🌸 — Gen Z Edition</p>
+    </footer>
+
+    <!-- Hidden images for canvas meme generation -->
+    <div style="display:none" aria-hidden="true">
+        <img id="img-drake" src="drake_meme_template.png" crossorigin="anonymous" alt="" />
+        <img id="img-expectation" src="expectation_reality_template.png" crossorigin="anonymous" alt="" />
+    </div>
+
+    <div class="toast-popup" id="global-toast" aria-live="polite"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
